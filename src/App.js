@@ -1,8 +1,44 @@
+import Home from './pages/Home';
+import SearchLists from './pages/SearchLists';
+import Details from './pages/Details';
+
+import { Route, Routes } from 'react-router-dom';
+
+import GlobalStyles from './styles/Global.styled';
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
+const theme = {
+  pc: '1280px',
+  tablet: '768px',
+  mobile: '480px',
+
+  colors: {
+    fonts: '#333',
+    point: '#ff6666',
+  },
+
+  el: {
+    sectionPadding: '3rem 0',
+    sectionPaddingM: '1rem 0',
+  },
+};
+
 function App() {
   return (
-    <div className="App">
-      <h3>initial settings</h3>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Provider store={store}>
+          <GlobalStyles />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/search-lists" element={<SearchLists />}></Route>
+            <Route path="/details" element={<Details />}></Route>
+          </Routes>
+        </Provider>
+      </div>
+    </ThemeProvider>
   );
 }
 
