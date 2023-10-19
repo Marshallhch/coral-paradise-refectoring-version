@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import SearchLists from './pages/SearchLists';
 import Details from './pages/Details';
+import Cart from './pages/Cart';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -34,6 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/search-lists" element={<SearchLists />}></Route>
+            <Route path="/wish-lists" element={<Cart />}></Route>
             <Route path="/details" element={<Details />}></Route>
           </Routes>
         </Provider>

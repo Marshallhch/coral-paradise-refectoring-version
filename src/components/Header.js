@@ -7,7 +7,10 @@ import Logo from '../assets/logo.png';
 import { HeaderSection } from '../styles/Header.styled';
 import Container from '../styles/Container.styled';
 
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+
 const Header = () => {
+  const cartItems = useSelector((state) => state.cart); // from store.js reducer.cart
   return (
     <HeaderSection id="header">
       <Container className="header-wrapper">
@@ -19,7 +22,7 @@ const Header = () => {
             <Link to="/">홈</Link>
           </li>
           <li>
-            <Link to="/wish-lists">위시 리스트</Link>
+            <Link to="/wish-lists">위시 리스트 [{cartItems.length}]</Link>
           </li>
           <li className="google-login">로그인</li>
         </ul>
